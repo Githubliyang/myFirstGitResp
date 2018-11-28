@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.userMapper" >
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.user" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+    </resultMap>
+
+    <resultMap type="com.example.demo.dao.user" id="typeUser">
+        <id column="uid" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+        <association property="type" javaType="com.example.demo.dao.Type" >
+            <result column="tid" property="id"/>
+        </association>
+    </resultMap>
+
+    <select id="listAlluser" resultMap="BaseResultMap" useCache="true" >
+        select *  from user
+    </select>
+
+    <!-- 分页SQL语句 -->
+    <select id="selectUserByPage" resultMap="BaseResultMap">
+        select *  from user limit #{startPos},#{pageSize}
+    </select>
+    <!-- 取得记录的总数 -->
+    <select id="getUserCount" resultType="long">
+        SELECT COUNT(*) FROM user
+    </select>
+    <delete id="deleteUserById" parameterType="int">
+        delete from user where  id = #{id,jdbcType=INTEGER}
+    </delete>
+    <select id="findTypeUser" resultMap="typeUser">
+        select user.name,user.id uid,user.age,type.id tid from user inner join type on user.name=type.typename
+    </select>
+</mapper>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	var obtn=document.getElementById("ok");
+	var text=document.getElementById("text");
+	var oselect=document.getElementById("selected");
+	obtn.onclick=function(){
+		text.innerHTML="调试";
+	}
+}
+</script>
+</head>
+
+<body>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<input type="text" id="text"/>
+<select id="selected">
+<option>黑龙江</option>
+<option>辽宁</option>
+<option>上海</option>
+</select>
+<input type="submit" id="ok"/>
+</body>
+</html>
+

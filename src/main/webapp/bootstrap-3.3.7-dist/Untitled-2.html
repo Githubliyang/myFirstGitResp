@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<script>
+window.onload=function(){
+	var obtn=document.getElementById("menu");
+	var obtn1=document.getElementById("inner");
+	var obtn2=document.getElementById("menu1");
+	obtn.onclick=function(){
+		obtn1.style.display="block";
+		
+	}
+	obtn2.onclick=function(){
+		obtn1.style.display="none";
+		}
+	
+}
+</script>
+</head>
+
+<body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<input id="menu" type="button" value="显示"/>
+<input id="menu1" type="button" value="隐藏"/>
+
+<button type="button" class="btn btn-info" >删除</button>
+<button type="button" class="btn btn-warning">添加</button>
+<button type="button" class="btn btn-danger" >修改</button>
+
+</body>
+</html>
